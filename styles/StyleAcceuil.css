@@ -1,0 +1,98 @@
+html {
+    margin: 20px;
+    padding: 0;
+}
+body {
+    background-image: url("../images/ps-store-1.jpg"); 
+    font-family: Verdana, sans-serif; 
+    font-size: 100%;
+	width:100%;
+}
+h1 {
+    font-size: 200%; 
+    color: white; 
+    text-align: center;
+	text-decoration: underline;
+}
+h2 {
+    font-size: 150%;
+    color: white;
+	text-decoration: underline;
+}
+h3{
+	font-size: 100%;
+	color: white;
+	padding-left : 0px;
+	text-decoration: none;
+}
+p{
+    color: whitesmoke;
+	text-align: justify;
+	width: 500px;
+}
+ul, li{
+	color: white;
+}
+td,th{
+	color:white;
+	background-color:#0F54A1;
+	width:20%;
+	height: 20%;
+}
+a:link {
+    color: white;
+    text-decoration: none;
+}
+a:visited {
+    color: white;
+	text-decoration: none;
+}
+a:hover {
+    color: yellowgreen;
+    text-decoration: none;
+}
+.button{
+	background-color: green;
+	border: none;
+	color:white;
+	text-decoration:none;
+	font-size: 25px;
+	border-radius: 2rem;
+	margin-left: 35px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+a.button:hover{
+	background-color: white;
+	color: green;
+	transition: 0.5s;
+}
+.large{
+	width:100%
+}
+#image{
+	width: 300px;
+	height: 200px;
+}
+.img{
+	width: 500px;
+	height: 400px;
+}
+a.new{
+	text-decoration: underline;
+	float: right;
+	margin-right: 10%;
+	font-weight: bold;
+	font-size: 20px;
+}
+.large#art{
+	color: white;
+}
+footer {
+	position:absolute;
+	bottom:0;  /* on le colle en bas */
+	width:100%;
+	height:100px;   /* Hauteur du pied de page */
+ }
