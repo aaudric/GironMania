@@ -264,7 +264,7 @@
                     $('#info').css('color', 'green');
                     setTimeout(window.location.href='index.php', 1000);
                 }else{
-                    $('#info').text('Désolé il y a eu une erreur lors de votre inscription');
+                    alert('Désolé il y a eu une erreur lors de votre inscription');
                 }},
             error : function(data) {
                 alert("Il y a une erreur de chargement de la page.");

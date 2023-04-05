@@ -37,9 +37,6 @@
 		
                 //insertion image
 		        echo "<img class ='img'src=".$ligne['url_photo']." alt = 'cover'>";
-		
-		        //création d'un bouton
-		        echo "<a class='button' href =''><strong>Acheter</strong></a>";
                 
                 echo $ligne['description'];
             }

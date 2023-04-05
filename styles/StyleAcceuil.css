@@ -51,24 +51,6 @@ a:hover {
     color: yellowgreen;
     text-decoration: none;
 }
-.button{
-	background-color: green;
-	border: none;
-	color:white;
-	text-decoration:none;
-	font-size: 25px;
-	border-radius: 2rem;
-	margin-left: 35px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-a.button:hover{
-	background-color: white;
-	color: green;
-	transition: 0.5s;
-}
 .large{
 	width:100%
 }
