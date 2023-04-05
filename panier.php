@@ -79,9 +79,10 @@
                     echo "<td>".$prix."€</td>";
                     echo "</tr>";
                     
-                //prix de la commande finale 
+                    //prix de la commande finale 
                     $total += $prix;
-
+                    
+                    $result -> closeCursor();
                 }
 
                 echo "<tr>";

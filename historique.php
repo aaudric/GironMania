@@ -76,7 +76,7 @@
             echo '</tbody>
                     </table>';
             
-            $hist ->closeCursor(); 
+        $hist ->closeCursor(); 
         
         } 
     } 

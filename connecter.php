@@ -47,6 +47,8 @@
         else{
             echo '<meta http-equiv="refresh" content="0;url=connexion.php">';
         }
+
+        $qu -> closeCursor();
         
     ?>
 
