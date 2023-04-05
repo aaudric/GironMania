@@ -1,5 +1,7 @@
 <?php
+
 include("bd.php");
+
 function validateEmailFormat($email) {
     $verif = true;
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -32,24 +34,6 @@ function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
     $requete = $bdd->prepare("INSERT INTO `clients` ( `nom`, `prenom`, `adresse`, `numero`, `mail`, `mdp`) VALUES ( '$nom', '$prenom', '$adresse', '$telephone', '$mail', '$mdp')");
     
     $requete->execute(array('nom'=>$nom, 'prenom'=>$prenom, 'adresse'=>$adresse, 'numero'=>$telephone,'mail'=> $mail,'mdp'=> $mdp));
-}
-
-
-function vérifmail(){
-
-    $mail = $_POST['email'];
-
-    $bdd = getBD();
-
-    $checkmail = $bdd->query("SELECT * FROM clients WHERE mail = '$mail'");
-    
-    if ($checkmail->rowCount() > 0){
-        echo true;
-    }
-    else{
-        echo false;
-    }
-
 }
 
     $retour ="retour";
@@ -96,8 +80,11 @@ function vérifmail(){
                 }else{
                     $retour = "error";
                 }
-                
+
+                $qu ->closeCursor();
             } 
+
+            $checkmail -> closeCursor();
 
         }else{
             $retour = "L'email ou le mot de passe n'est pas valide.";

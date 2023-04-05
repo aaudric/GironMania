@@ -253,7 +253,7 @@
 
         $.ajax({
             type: 'post',
-            url : 'cr.php',
+            url : 'sign-up.php',
             data : {n : name, p : prenom, adr : adresse, num : num, email : email, mdp1 :  mdp1, mdp2 : mdp2},
             //dataType : 'text',
             success : function(reponse) {

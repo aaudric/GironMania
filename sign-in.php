@@ -26,10 +26,13 @@
         else{
             $reponse = "error";
         }
+        
+        $qu ->closeCursor();
     }
     else{
         $reponse = "parametre";
     }
+    
 
     echo $reponse;
 

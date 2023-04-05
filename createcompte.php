@@ -62,6 +62,8 @@
             echo false;
         }
 
+        $checkmail -> closeCursor();
+
     }
 
     function compte(){
