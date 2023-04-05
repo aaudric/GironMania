@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="styles/StyleAcceuil.css"
 	type="text/css" media="screen" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>Sign in</title>
 
 </head>
@@ -23,17 +25,128 @@
 
     <h3><a href="nouveau.php">Nouveau Client ? Sign up</a><h3>
 
-    <form action="connecter.php" method="post" autocomplete="off">
+    <form id ="connect" method="post">
 
-        <p> Adresse e-mail : <INPUT type="text" name="mail" value=""></p>
+        <p> Adresse e-mail : <INPUT type="text" name="mail" id="mail" value=""></p>
+        <span id="mail-error"></span>
 
-        <p> Mot de passe : <INPUT type="password" name="mdp" value=""></p>
+        <p> Mot de passe : <INPUT type="password" name="mdp" id = "mdp" value=""></p>
+        <span id="mdp-error"></span>
     
-        <p><input type="submit" value="Se connecter"></p>
-
-        
-    </from>
+        <p><input type="submit" value="Se connecter" id = "btn" onclick="connecter()"></p>
+          
+    </form>
 
 </body>
 
 </html>
+
+<script>
+
+$(document).ready(function() {
+
+    $('#connect').on('keyup', function(e){
+
+        var mail = $('#mail').val();
+        var mdp = $('#mdp').val();
+        var btn = $('#submit-btn'); 
+        var result = true;
+
+        function validateEmail(email) {
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+        }
+
+        // Fonction de validation du mot de passe
+        function validatePassword(password) {
+        var re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        return re.test(password);
+        }
+
+        if (mail =="") {
+            $('#mail-error').text('L\'email est requis').css('color','red','bold');
+            $('#mail').css('border-color', 'red');
+            result = false;
+        } else if (!validateEmail(mail)) {
+            $('#mail-error').text('Mauvais format d\'email').css('color','red','bold');
+            $('#mail').css('border-color', 'red');
+            result = false;
+        } else {
+            $.ajax({
+            type: 'post',
+            url : 'createcompte.php',
+            data : {but: 'vérif', email: mail },
+            dataType : 'text',
+            success : function(output) {
+                output = output.trim();
+                console.log(output);
+                if (output == true){
+                    $('#mail-error').text('Cet email est correct');
+                    $('#mail-error').css('color','green','bold');
+                    $('#mail').css('border-color', 'green');
+                    $('mail').removeClass('invalid').addClass('valid');
+                    btn.attr('disabled', false);
+                }else{
+                    $('#mail-error').hide();
+                    $('#mail').css('border-color', 'red');
+                    btn.attr('disabled', true);
+                }
+            },
+            error : function(data) {
+                alert("Il y a une erreur de chargement de la page.");
+            }
+            });
+            
+        }
+
+        if (mdp =="") {
+            $('#mdp-error').text('Le mot de passe est requis').css('color','red','bold');
+            $('#mdp').css('border-color', 'red');
+            result = false;
+        } else if (!validatePassword(mdp)) {
+            $('#mdp-error').text('Mauvais format de mot de passe').css('color','red','bold');
+            $('#mdp').css('border-color', 'red');
+            result = false;
+        } else {
+            $('#mdp-error').hide();
+            $('#mdp').css('border-color', 'green');
+        }
+
+        if (!result) {
+            btn.attr('disabled', true);
+        }
+        else if ( result == true ) {
+            btn.attr('disabled', false);
+        }
+    })
+
+})
+
+    function connecter(){
+
+        var email = $('#mail').val();
+        var mdp1 = $('#mdp').val();
+        
+        $.ajax({
+            type: 'post',
+            url : 'sign-in.php',
+            data : { email : email, mdp1 :  mdp1},
+            dataType : 'text',
+            success : function(reponse) {
+                console.log(reponse);
+                response = reponse.trim();
+                if (response=="connect") {
+                    $('#info').text('Connection réussie avec succès');
+                    $('#info').css('color', 'green');
+                    setTimeout(window.location.href='index.php', 1000);
+                }else if (response = "parametre"){
+                    alert('Il manque un ou plusieurs paramètres.');
+                }},
+            error : function(data) {
+                alert("Il y a une erreur de chargement de la page.");
+            }
+        });
+    }
+
+
+</script>
