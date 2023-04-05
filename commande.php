@@ -66,6 +66,8 @@
                 //prix de la commande finale 
                     $total += $prix;
 
+                    $result -> closeCursor();
+
                 }
 
             
