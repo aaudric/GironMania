@@ -12,7 +12,7 @@
         connecter();
     }
 
-    function validateEmailFormat($email) {
+    /*function validateEmailFormat($email) {
         $verif = true;
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
           $verif = false;
@@ -44,7 +44,7 @@
         $requete = $bdd->prepare("INSERT INTO `clients` ( `nom`, `prenom`, `adresse`, `numero`, `mail`, `mdp`) VALUES ( '$nom', '$prenom', '$adresse', '$telephone', '$mail', '$mdp')");
         
         $requete->execute(array('nom'=>$nom, 'prenom'=>$prenom, 'adresse'=>$adresse, 'numero'=>$telephone,'mail'=> $mail,'mdp'=> $mdp));
-    }
+    }*/
 
 
     function vérifmail(){
@@ -66,7 +66,7 @@
 
     }
 
-    function compte(){
+    /*function compte(){
 
         $retour ="retour";
 
@@ -160,6 +160,6 @@
         }
 
         echo $reponse;
-    }
+    }*/
 
 ?>

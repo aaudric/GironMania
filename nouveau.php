@@ -184,7 +184,6 @@
             dataType : 'text',
             success : function(output) {
                 output = output.trim();
-                console.log(output);
                 if (output == true){
                     $('#email-error').text('Cet email existe déja');
                     $('#email-error').css('color','red','bold');

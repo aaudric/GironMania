@@ -30,7 +30,7 @@
         $qu ->closeCursor();
     }
     else{
-        $reponse = "parametre";
+        $reponse = "erreur de parametre";
     }
     
 
