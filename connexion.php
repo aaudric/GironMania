@@ -133,15 +133,17 @@ $(document).ready(function() {
             data : { email : email, mdp1 :  mdp1},
             dataType : 'text',
             success : function(reponse) {
-                console.log(reponse);
                 response = reponse.trim();
                 if (response=="connect") {
-                    $('#info').text('Connection réussie avec succès');
-                    $('#info').css('color', 'green');
+                    var message = alert('Connection réussie avec succès');
                     setTimeout(window.location.href='index.php', 1000);
-                }else if (response = "parametre"){
+                }else if (response = "Mauvais format d'email ou de mot de passe"){
+                    alert(response);
+                }
+                else if (response = "parametre"){
                     alert('Il manque un ou plusieurs paramètres.');
-                }},
+                }
+            },
             error : function(data) {
                 alert("Il y a une erreur de chargement de la page.");
             }

@@ -83,7 +83,7 @@
             <span id="mdp2-error"></span>';?>
             <p><input type="submit" id = "submit-btn" value="Envoyer" onclick="create()" ></p>
 
-            <center><p id="info"></p></center>
+            
 
         
     </form>
