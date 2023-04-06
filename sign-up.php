@@ -56,9 +56,12 @@ function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
             $checkmail = $bdd->query("SELECT * FROM clients WHERE mail = '$mail'");
             
             if ($checkmail->rowCount() > 0){
+
                 $retour = "email déja existant";
+
             }
             else{
+
                 enregistrer($_POST['n'], $_POST['p'], $_POST['adr'], $_POST['num'], $_POST['email'], md5($_POST['mdp2']));
 
                 $email = $_POST['email'];
@@ -78,6 +81,7 @@ function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
                     $retour = "ok";
 
                 }else{
+
                     $retour = "error";
                 }
 
@@ -87,10 +91,12 @@ function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
             $checkmail -> closeCursor();
 
         }else{
+
             $retour = "L'email ou le mot de passe n'est pas valide.";
         }
 
     }else{
+        
         $retour = "Désolé mais il manque un ou plusieurs paramètres.";
     }
 
