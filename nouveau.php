@@ -34,58 +34,29 @@
     
     <form id = "mon-formulaire" >
         
-        <?php
+            <p> Nom : <INPUT type="text" id = "n" name="n" value=""></p>
+            <span id="n-error"></span>
         
-        if(!isset($_GET['var1'])){
-            echo '<p> Nom : <INPUT type="text" id = "n" name="n" value=""></p>
-            <span id="n-error"></span>';
-            }
-        elseif(isset($_GET['var1'])){
-            echo '<p> Nom : <INPUT type="text" id = "n" name="n" value='.$_GET['var1'].'></p>
-            <span id="n-error"></span>';
-            }
-        if(!isset($_GET['var2'])){
-            echo '<p> Prénom : <INPUT type="text" id = "p" name="p" value=""></p>
-            <span id="p-error"></span>';
-            }
-        elseif(isset($_GET['var2'])){
-                echo '<p> Prénom : <INPUT type="text" id = "p" name="p" value='.$_GET['var2'].'></p>
-                <span id="p-error"></span>';
-            }
-        if(!isset($_GET['var3'])){
-                echo '<p> Adresse : <INPUT type="text" id = "adr" name="adr" value=""></p>
-                <span id="adr-error"></span>';
-            }
-        elseif (isset($_GET['var3'])){
-                echo '<p> Adresse : <INPUT type="text" id ="adr" name="adr" value='.$_GET['var3'].'></p>
-                <span id="adr-error"></span>';
-            }
-        if(!isset($_GET['var4'])){
-                echo '<p> Numéro de téléphone : <INPUT type="number" id = "num" name="num" value=""></p>
-                <span id="num-error"></span>';
-            }
-        elseif(isset($_GET['var4'])){
-                echo '<p> Numéro de téléphone : <INPUT type="number" id ="num" name="num" value='.$_GET['var4'].'></p>
-                <span id="num-error"></span>';
-            }
-        if(!isset($_GET['var5'])){
-                echo '<p> Adresse e-mail : <INPUT type="text" id = "email" name="mail" value=""></p>
-                <span id="email-error"></span>';
-            }
-        elseif(isset($_GET['var5'])){
-                echo '<p> Adresse e-mail : <INPUT type="text" id = "email" name="mail" value='.$_GET['var5'].'></p>
-                <span id="email-error"></span>';
-            }
+            <p> Prénom : <INPUT type="text" id = "p" name="p" value=""></p>
+            <span id="p-error"></span>
+
+            <p> Adresse : <INPUT type="text" id = "adr" name="adr" value=""></p>
+            <span id="adr-error"></span>
+       
+            <p> Numéro de téléphone : <INPUT type="number" id = "num" name="num" value=""></p>
+            <span id="num-error"></span>
         
-            echo '<p>Mot de passe : <INPUT type="password" id = "mdp1" name="mdp1" value="" ></p>
-            <span id="mdp1-error"></span>';
-            echo '<p>Confirmer votre mot de passe : <INPUT type="password" id = "mdp2" name="mdp2" value="" ></p>
-            <span id="mdp2-error"></span>';?>
+            <p> Adresse e-mail : <INPUT type="text" id = "email" name="mail" value=""></p>
+            <span id="email-error"></span>
+        
+            <p>Mot de passe : <INPUT type="password" id = "mdp1" name="mdp1" value="" ></p>
+            <span id="mdp1-error"></span>
+
+            <p>Confirmer votre mot de passe : <INPUT type="password" id = "mdp2" name="mdp2" value="" ></p>
+            <span id="mdp2-error"></span>
+
             <p><input type="button" id = "submit-btn" value="Envoyer" onclick="create()" ></p>
 
-            
-
-        
     </form>
         
     <footer>
