@@ -32,7 +32,7 @@
     </p>
 
     
-    <form id = "mon-formulaire" method = "post">
+    <form id = "mon-formulaire" >
         
         <?php
         
@@ -81,7 +81,7 @@
             <span id="mdp1-error"></span>';
             echo '<p>Confirmer votre mot de passe : <INPUT type="password" id = "mdp2" name="mdp2" value="" ></p>
             <span id="mdp2-error"></span>';?>
-            <p><input type="submit" id = "submit-btn" value="Envoyer" onclick="create()" ></p>
+            <p><input type="button" id = "submit-btn" value="Envoyer" onclick="create()" ></p>
 
             
 
@@ -257,6 +257,7 @@
             //dataType : 'text',
             success : function(reponse) {
                 console.log(reponse);
+                alert("Votre compte est en cours de création, vous allez bientot être rediriger vers l'acceuil")
                 response = reponse.trim();
                 if (reponse == "ok") {
                     $('#info').text('Inscription réussie avec succès');

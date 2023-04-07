@@ -25,7 +25,7 @@
 
     <h3><a href="nouveau.php">Nouveau Client ? Sign up</a><h3>
 
-    <form id ="connect" method="post">
+    <form id ="connect">
 
         <p> Adresse e-mail : <INPUT type="text" name="mail" id="mail" value=""></p>
         <span id="mail-error"></span>
@@ -33,7 +33,7 @@
         <p> Mot de passe : <INPUT type="password" name="mdp" id = "mdp" value=""></p>
         <span id="mdp-error"></span>
     
-        <p><input type="submit" value="Se connecter" id = "btn" onclick="connecter()"></p>
+        <p><input type="button" value="Se connecter" id = "btn" onclick="connecter()"></p>
           
     </form>
 
