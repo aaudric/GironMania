@@ -23,7 +23,7 @@
     <h1>Sign in</h1>
 
 
-    <h3><a href="nouveau.php">Nouveau Client ? Sign up</a><h3>
+    <h3><a href="nouveau.php">Nouveau Client ? Sign up</a></h3> 
 
     <form id ="connect">
 

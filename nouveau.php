@@ -55,7 +55,7 @@
             <p>Confirmer votre mot de passe : <INPUT type="password" id = "mdp2" name="mdp2" value="" ></p>
             <span id="mdp2-error"></span>
 
-            <p><input type="button" id = "submit-btn" value="Envoyer" onclick="create()" ></p>
+            <p><input type="button" id = "submit-btn" value="S'inscrire" onclick="create()" ></p>
 
     </form>
         
