@@ -12,12 +12,16 @@ h1 {
     font-size: 200%; 
     color: white; 
     text-align: center;
-	text-decoration: underline;
+	text-decoration: none;
 }
 h2 {
     font-size: 150%;
     color: white;
 	text-decoration: underline;
+}
+.achat{
+	text-decoration: none;
+	font-size: 200%;
 }
 h3{
 	font-size: 100%;
@@ -63,7 +67,7 @@ a:hover {
 	height: 400px;
 }
 a.new{
-	text-decoration: underline;
+	text-decoration: none;
 	float: right;
 	margin-right: 10%;
 	font-weight: bold;

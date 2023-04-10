@@ -18,6 +18,9 @@
 
 <body>
 
+    <h2 class ="achat">Félicitations</h2>
+
+
     <?php
 
         session_start();
@@ -46,7 +49,7 @@
 
         }
 
-        echo "<p>Votre	commande a	bien	été	enregistrée.</p>";
+        echo "<p> Votre achat a été effectué avec succès et votre commande a	bien été enregistrée.</p>";
 
         // Supprime la variable de session contenant le panier
         unset($_SESSION['panier']);

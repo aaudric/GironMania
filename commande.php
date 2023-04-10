@@ -34,7 +34,7 @@
         </tr>
         
             <?php
-
+                
                 session_start();
 
                 $total = 0;
@@ -50,8 +50,6 @@
                     $que = "SELECT  `articles`.`nom`, `articles`.`prix` FROM `articles` WHERE `articles`.`id_art`=$id";
                     $result = $bdd->query($que);
                     $row = $result->fetch();
-
-                 // Affichage des données dans le tableau
 
                  //calcul du prix en fonction du nombre d'exemplaires
                     $prix = $row['prix'] * $nb;
@@ -80,7 +78,7 @@
             echo "<p class='large'>La commande sera expédiée à l’adresse suivante : ".$_SESSION['client']['nom']." ".$_SESSION['client']['prenom']." au ".$_SESSION['client']['adresse']."</p>";
         ?>
 
-        <form method="post" action="acheter.php">
+        <form method="post" action="paiement.php">
         
             <input type="submit" value="Valider">
 
