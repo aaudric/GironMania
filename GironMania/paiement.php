@@ -35,7 +35,7 @@
             'quantity' => $nb
         );
 
-        $Domain = "http://localhost/Girondin/";
+        $Domain = "http://localhost/Girondin/GironMania/";
 
         // Création de la session Stripe de paiement
         $checkout_session = \Stripe\Checkout\Session::create([
