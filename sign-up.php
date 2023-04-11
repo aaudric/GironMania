@@ -1,6 +1,8 @@
 <?php
 
 include("bd.php");
+require_once('../vendor/autoload.php');
+require_once('stripe.php'); 
 
 function validateEmailFormat($email) {
     $verif = true;
@@ -27,13 +29,14 @@ function validatePassword($password) {
     return $mdp;
 }
 
-function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
+function enregistrer($id_stripe, $nom, $prenom, $adresse, $telephone, $mail, $mdp) {
 
     $bdd = getBD();
 
-    $requete = $bdd->prepare("INSERT INTO `clients` ( `nom`, `prenom`, `adresse`, `numero`, `mail`, `mdp`) VALUES ( '$nom', '$prenom', '$adresse', '$telephone', '$mail', '$mdp')");
     
-    $requete->execute(array('nom'=>$nom, 'prenom'=>$prenom, 'adresse'=>$adresse, 'numero'=>$telephone,'mail'=> $mail,'mdp'=> $mdp));
+    $requete = $bdd->prepare("INSERT INTO `clients` (`ID_STRIPE`, `nom`, `prenom`, `adresse`, `numero`, `mail`, `mdp`) VALUES ('$id_stripe', '$nom', '$prenom', '$adresse', '$telephone', '$mail', '$mdp')");
+
+    $requete->execute(array('ID_STRIPE'=> $id_stripe, 'nom'=>$nom, 'prenom'=>$prenom, 'adresse'=>$adresse, 'numero'=>$telephone,'mail'=> $mail,'mdp'=> $mdp));
 }
 
     $retour ="retour";
@@ -54,6 +57,18 @@ function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
             $bdd = getBD();
 
             $checkmail = $bdd->query("SELECT * FROM clients WHERE mail = '$mail'");
+
+            
+            \Stripe\Stripe::setApiKey($stripeSecretKey);
+
+            // Créer un utilisateur Stripe
+            $customer = \Stripe\Customer::create(array(
+            "email" => $mail,
+            "name" => $_POST['n']
+            ));
+
+            // Récupérer l'identifiant de l'utilisateur Stripe créé
+            $stripe_customer_id = $customer->id;
             
             if ($checkmail->rowCount() > 0){
 
@@ -62,7 +77,7 @@ function enregistrer($nom, $prenom, $adresse, $telephone, $mail, $mdp) {
             }
             else{
 
-                enregistrer($_POST['n'], $_POST['p'], $_POST['adr'], $_POST['num'], $_POST['email'], md5($_POST['mdp2']));
+                enregistrer($stripe_customer_id, $_POST['n'], $_POST['p'], $_POST['adr'], $_POST['num'], $_POST['email'], md5($_POST['mdp2']));
 
                 $email = $_POST['email'];
 

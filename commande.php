@@ -80,7 +80,7 @@
 
         <form method="post" action="paiement.php">
         
-            <input type="submit" value="Valider">
+            <input type="submit" name ='v' value="Valider">
 
         </form>
 

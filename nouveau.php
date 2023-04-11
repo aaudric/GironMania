@@ -228,9 +228,9 @@
             //dataType : 'text',
             success : function(reponse) {
                 console.log(reponse);
-                alert("Votre compte est en cours de création, vous allez bientot être rediriger vers l'acceuil")
                 response = reponse.trim();
                 if (reponse == "ok") {
+                    alert("Votre compte est en cours de création, vous allez bientot être rediriger vers l'acceuil")
                     $('#info').text('Inscription réussie avec succès');
                     $('#info').css('color', 'green');
                     setTimeout(window.location.href='index.php', 1000);
