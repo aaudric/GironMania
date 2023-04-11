@@ -37,6 +37,10 @@
                 
                 session_start();
 
+                $token = rand();
+
+                $_SESSION['token'] = $token;
+
                 $total = 0;
 
                 $bdd = getBD();
@@ -80,9 +84,12 @@
 
         <form method="post" action="paiement.php">
         
-            <input type="submit" name ='v' value="Valider">
+            <input type="hidden" name ='v' value=<?php echo $token; ?> >
+            
+            <button type="submit">Valider</button>
 
         </form>
+        
 
         <footer>
         

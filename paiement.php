@@ -6,11 +6,11 @@
     
     
     // Vérification de la méthode HTTP et d'attaque post
-    if ($_SERVER['REQUEST_METHOD'] != 'POST' || (isset($_SESSION['panier']) and empty($_SESSION['panier'])) || !isset($_SESSION['panier']) || !isset($_POST['v']) || (isset($_POST['v']) and empty($_POST['v']))) {
+    if ($_SERVER['REQUEST_METHOD'] != 'POST' || (isset($_SESSION['panier']) and empty($_SESSION['panier'])) || !isset($_SESSION['panier']) || !isset($_POST['v']) || (isset($_POST['v']) and empty($_POST['v'])) || (isset($_SESSION['token']) and empty($_SESSION['token']))|| !isset($_SESSION['token']) ||isset($_SESSION['token']) and isset($_POST['v']) and $_SESSION['token']!=$_POST['v']){
         echo 'Invalid request';
         exit;
     }
-    else{
+    else if (isset($_SESSION['token']) and !empty($_SESSION['token']) and $_SESSION['token'] == $_POST['v']) {
     
         $bdd = getBD();
         \Stripe\Stripe::setApiKey($stripeSecretKey);
