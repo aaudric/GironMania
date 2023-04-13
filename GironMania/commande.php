@@ -17,6 +17,8 @@
 
     <?php include("bd.php");?>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
     <h1>Votre Commande:</h1>
@@ -85,9 +87,13 @@
         
             <input type="hidden" name ='v' value=<?php echo $token; ?> >
             
-            <button type="submit">Valider</button>
+            <button type="submit">Valider la commande</button>
 
         </form>
+
+        <br/>
+
+        <input type="button" name="vider" value = "Vider le panier" onclick="vider()">
 
         <footer>
         
@@ -100,3 +106,31 @@
 </body>
 
 </html>
+
+<script>
+
+function vider(){
+
+    var vide = "vide";
+
+    $.ajax({
+            type: 'post',
+            url : 'vider.php',
+            data : {vide : vide},
+            //dataType : 'text',
+            success : function(reponse) {
+                response = reponse.trim();
+                if (reponse == "Votre panier a été vidé") {
+                    alert(response +", appuyez sur OK afin d'être rediriger vers l'acceuil.");
+                    setTimeout(window.location.href='index.php', 1000); 
+                }else{
+                    alert('Désolé il y a eu une erreur lors de la suprression du panier');
+                }},
+            error : function(data) {
+                alert("Il y a une erreur de chargement de la page.");
+            }
+    });
+
+}
+
+</script>

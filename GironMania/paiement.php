@@ -42,6 +42,9 @@
             'success_url' => ''.$Domain.'acheter.php',
             'cancel_url' => ''.$Domain.'cancel.html',
             'mode' => 'payment',
+            'billing_address_collection' => 'required',
+            'shipping_address_collection' => [
+              'allowed_countries' => ['US', 'FR']],
             'automatic_tax' => ['enabled' => false],
             'line_items' => $TOTO,
         ]);

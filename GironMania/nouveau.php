@@ -227,12 +227,9 @@
             data : {n : name, p : prenom, adr : adresse, num : num, email : email, mdp1 :  mdp1, mdp2 : mdp2},
             //dataType : 'text',
             success : function(reponse) {
-                console.log(reponse);
                 response = reponse.trim();
                 if (reponse == "ok") {
-                    alert("Votre compte est en cours de création, vous allez bientot être rediriger vers l'acceuil")
-                    $('#info').text('Inscription réussie avec succès');
-                    $('#info').css('color', 'green');
+                    alert("Votre compte est en cours de création, appuyez sur OK afin d'être rediriger vers l'acceuil.")
                     setTimeout(window.location.href='index.php', 1000);
                 }else{
                     alert('Désolé il y a eu une erreur lors de votre inscription');
