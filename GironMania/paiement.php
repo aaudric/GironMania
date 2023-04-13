@@ -23,17 +23,16 @@
             $nb = $art[1];
 
             $quer = "SELECT  `articles`.`ID_PRICE` FROM `articles` WHERE `articles`.`id_art`=$id";
-            $resultat = $bdd->query($quer);
+            $resultat = $bdd->query($quer); 
             $rows = $resultat->fetch();
+
+            // Ajout de l'article dans la liste des produits Stripe
+            $TOTO[] = array(
+                'price' => $rows['ID_PRICE'], 
+                'quantity' => $nb);
         }
 
         $resultat -> closeCursor();
-        
-        // Ajout de l'article dans la liste des produits Stripe
-        $TOTO[] = array(
-            'price' => $rows['ID_PRICE'], 
-            'quantity' => $nb
-        );
 
         $Domain = "http://localhost/Girondin/GironMania/";
 
@@ -47,8 +46,8 @@
             'line_items' => $TOTO,
         ]);
 
-
         header("HTTP/1.1 303 See Other");
         header("Location: " . $checkout_session->url);
     }
+
 ?>
