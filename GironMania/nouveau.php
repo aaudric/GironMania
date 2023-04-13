@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="styles/StyleAcceuil.css"
 	type="text/css" media="screen" />
 
+    <link rel="shortcut icon" type="image/png" href="images/iconeG.png" />
+
     <title>Inscription</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

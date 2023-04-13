@@ -12,6 +12,8 @@
 
     <title>Commande</title>
     
+    <link rel="shortcut icon" type="image/png" href="images/iconeG.png" />
+
     <link rel="stylesheet" href="styles/StyleAcceuil.css"
 	type="text/css" media="screen" />
 

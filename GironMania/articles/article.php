@@ -6,7 +6,9 @@
         <!--laison avec feuille de style-->
 		<link rel="stylesheet" href="../styles/StyleAcceuil.css"
 		type="text/css" media="screen" />
-		
+        
+        <link rel="shortcut icon" type="image/png" href="../images/iconeG.png" />
+
         <!--encodage-->
 		<meta http-equiv="Content-Type"
 		content="text/html; charset=UTF-8" />
