@@ -57,25 +57,24 @@ function enregistrer($id_stripe, $nom, $prenom, $adresse, $telephone, $mail, $md
             $bdd = getBD();
 
             $checkmail = $bdd->query("SELECT * FROM clients WHERE mail = '$mail'");
-
-            
-            \Stripe\Stripe::setApiKey($stripeSecretKey);
-
-            // Créer un utilisateur Stripe
-            $customer = \Stripe\Customer::create(array(
-            "email" => $mail,
-            "name" => $_POST['n']
-            ));
-
-            // Récupérer l'identifiant de l'utilisateur Stripe créé
-            $stripe_customer_id = $customer->id;
-            
+ 
             if ($checkmail->rowCount() > 0){
 
                 $retour = "email déja existant";
 
             }
             else{
+
+                \Stripe\Stripe::setApiKey($stripeSecretKey);
+
+                // Créer un utilisateur Stripe
+                $customer = \Stripe\Customer::create(array(
+                "email" => $mail,
+                "name" => $_POST['n']
+                ));
+
+                // Récupérer l'identifiant de l'utilisateur Stripe créé
+                $stripe_customer_id = $customer->id;
 
                 enregistrer($stripe_customer_id, $_POST['n'], $_POST['p'], $_POST['adr'], $_POST['num'], $_POST['email'], md5($_POST['mdp2']));
 
