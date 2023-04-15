@@ -68,7 +68,7 @@
                         if ($h['envoi']== 0){
                             echo' <td>'."En cours d'envoi".'</td>';
                         }
-                        elseif (['envoi']==1){
+                        elseif ($h['envoi']==1){
                             echo' <td>'."Envoyée".'</td>';
                         }
                     
