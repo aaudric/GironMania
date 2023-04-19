@@ -36,7 +36,7 @@
         $client_id = $_SESSION['client']['id_client'];
         
         // requête SQL pour récupérer l'historique du client connecté en utilisant une jointure
-        $hist = $bdd->query("SELECT `commandes`.`id_commande`, `articles`.`id_art`, `articles`.`nom`,`articles`.`prix`,`commandes`.`quantite`,`commandes`.`envoi` FROM `commandes` JOIN `articles`  on  `commandes`.`id_art` = `articles`.`id_art` WHERE `commandes`.`id_client`=$client_id");
+        $hist = $bdd->query("SELECT `commandes`.`id_commande`, `articles`.`id_art`, `articles`.`nom`,`articles`.`prix`,`commandes`.`quantite`,`commandes`.`envoi` FROM `commandes` JOIN `articles`  on  `commandes`.`id_art` = `articles`.`id_art` WHERE `commandes`.`id_client`=$client_id order by `commandes`.`id_commande`");
         
         if ($hist->rowCount()==0){
 
